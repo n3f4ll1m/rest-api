@@ -2,11 +2,11 @@ import express from "express";
 
 import bodyParser from "body-parser";
 import mysql from "mysql";
-const PORT = 8080;
+const PORT = 8000;
 
 const connection = mysql.createConnection({
-  host: "192.168.0.160",
-  user: "root",
+  host: "25.51.165.235",
+  user: "Gevor",
   password: "1111",
   database: "server_side",
   port: "3306",
@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("/barcode", (req, res) => {
-  console.log(req.query);
   try {
     connection.query(
       `SELECT * FROM products WHERE bar_code = ${req.query.code}`,
